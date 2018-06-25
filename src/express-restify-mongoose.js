@@ -89,7 +89,7 @@ const restify = function(app, model, opts) {
     options.outputFn = outputFn(!options.restify)
   }
 
-  options.name = options.name || model.modelName
+  options.name = (options.name || model.modelName).replace(/^[/]+/, '')
 
   const ops = require('./operations')(model, options, excludedMap)
 
